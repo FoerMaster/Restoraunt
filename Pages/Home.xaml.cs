@@ -20,7 +20,7 @@ namespace Restoraunt.Pages
     /// </summary>
     public partial class Home : Page
     {
-        public Home(FoodDBEntities Database)
+        public Home(DataBase.FoodDBEntities Database)
         {
             InitializeComponent();
 

@@ -12,15 +12,15 @@ namespace Restoraunt.Pages
     {
         private static Home homeView;
 
-        private static FoodDBEntities database;
+        private static DataBase.FoodDBEntities database;
 
-        private static FoodDBEntities Database
+        private static DataBase.FoodDBEntities Database
         {
             get
             {
                 if (database == null)
                 {
-                    database = new FoodDBEntities();
+                    database = new DataBase.FoodDBEntities();
                     if (database.Database.Exists() == false)
                     {
                         MessageBox.Show("Подключения к базе данных провалено.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Restoraunt
+namespace Restoraunt.DataBase
 {
     using System;
     using System.Data.Entity;
