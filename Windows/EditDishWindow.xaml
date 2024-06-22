@@ -5,30 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Restoraunt.Windows"
         mc:Ignorable="d"
-        Title="EditDishWindow" Height="450" Width="800">
+        
+        Title="EditDishWindow" Height="450" Width="800" SizeToContent="WidthAndHeight">
     <Grid>
         <StackPanel Margin="10">
             <TextBlock Text="Название блюда" Margin="5"/>
             <TextBox x:Name="DishNameTextBox" Margin="5"/>
+            <CheckBox x:Name="isPreparing" Content="Является заготовкой" Margin="5 5 5 15" />
+            <Border BorderBrush="gray" BorderThickness="1">
+                <StackPanel Margin="2">
+                    <TextBlock Text="Ингредиенты" Margin="5"/>
+                    <ComboBox x:Name="IngredientsComboBox" Margin="5" DisplayMemberPath="Name"/>
 
-            <TextBlock Text="Ингредиенты" Margin="5"/>
-            <ComboBox x:Name="IngredientsComboBox" Margin="5" DisplayMemberPath="Name"/>
+                    <TextBlock Text="Количество" Margin="5"/>
+                    <TextBox x:Name="QuantityTextBox" Margin="5"/>
 
-            <TextBlock Text="Количество" Margin="5"/>
-            <TextBox x:Name="QuantityTextBox" Margin="5"/>
+                    <Button Content="Добавить Ингредиент" Click="AddIngredientButton_Click" Margin="5"/>
 
-            <Button Content="Добавить Ингредиент" Click="AddIngredientButton_Click" Margin="5"/>
-
-            <ListBox x:Name="IngredientsListBox" Margin="5">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Display}" Margin="5"/>
-                            <Button Content="Удалить" Click="RemoveIngredientButton_Click" Tag="{Binding}" Margin="5"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+                    <ListBox x:Name="IngredientsListBox" Margin="5">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Display}" Margin="5"/>
+                                    <Button Content="Удалить" Click="RemoveIngredientButton_Click" Tag="{Binding}" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+            </Border>
+            
 
             <Button Content="Сохранить изменения" Click="SaveDishButton_Click" Margin="5" Width="150" HorizontalAlignment="Center"/>
         </StackPanel>

@@ -63,6 +63,8 @@ namespace Restoraunt.Windows
                 if (currentDish != null)
                 {
                     DishNameTextBox.Text = currentDish.Name;
+
+                    isPreparing.IsChecked = currentDish.IsPreparation;
                     foreach (var di in currentDish.DishIngredients)
                     {
                         var ingredient = context.Ingredients.FirstOrDefault(i => i.IngredientID == di.IngredientID);
@@ -136,7 +138,7 @@ namespace Restoraunt.Windows
                 if (dish != null)
                 {
                     dish.Name = dishName;
-                    dish.IsPreparation = true;
+                    dish.IsPreparation = (bool)isPreparing.IsChecked;
 
                     var existingIngredients = context.DishIngredients.Where(di => di.DishID == dish.DishID).ToList();
                     context.DishIngredients.RemoveRange(existingIngredients);

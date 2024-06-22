@@ -103,7 +103,7 @@ namespace Restoraunt.Windows
                 var dish = new Dishes
                 {
                     Name = dishName,
-                    IsPreparation = true,
+                    IsPreparation = (bool)isPreparing.IsChecked,
                 };
 
                 context.Dishes.Add(dish);

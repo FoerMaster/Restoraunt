@@ -7,6 +7,9 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="600"
       Title="Home">
+    <Page.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+    </Page.Resources>
 
     <Grid Background="White">
         <Grid.ColumnDefinitions>
@@ -29,6 +32,9 @@
                 <Button Margin="0 0 0 5" Height="34" Click="Button_EditSelected">
                     Редактировать выбранное
                 </Button>
+                <Button Margin="0 0 0 5" Height="34" Click="Button_RemoveSelected">
+                    Удалить выбранное
+                </Button>
             </StackPanel>
         </Border>
         <ListBox Name="list_dishes">
@@ -38,7 +44,10 @@
                 <TextBlock Text="{Binding Dish.Name}" FontWeight="Bold" FontSize="14"/>
                         <TextBlock Text="{Binding TotalCalories}" FontWeight="Bold" FontSize="14"/>
                         <TextBlock Text="{Binding TotalWeight}" FontWeight="Bold" FontSize="14"/>
+                        
                         <TextBlock Text="Ингредиенты:" FontWeight="Bold" Margin="0,5,0,0"/>
+
+                        <TextBlock Text="!ЗАГОТОВКА!" FontWeight="Bold" FontSize="14" Foreground="red" Visibility="{Binding  Dish.IsPreparation, Converter={StaticResource BoolToVisibilityConverter}}"/>
                 <ItemsControl ItemsSource="{Binding Ingredients}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
@@ -48,11 +57,14 @@
                                         <TextBlock Text="{Binding Quantity}" Width="50"/>
                                         <TextBlock Text="Калорий:" Width="50" Margin="0,0,5,0"/>
                                         <TextBlock Text="{Binding Calories}" Width="50"/>
+                                
                                     </StackPanel>
+                            
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
-            </StackPanel>
+                        <Separator/>
+                    </StackPanel>
         </DataTemplate>
     </ListBox.ItemTemplate>
 </ListBox>
