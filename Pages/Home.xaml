@@ -17,14 +17,17 @@
         <!--Кнопки для работы с блюдами-->
         <Border Grid.Column="3" Margin="5">
             <StackPanel Orientation="Vertical">
-                <Button Margin="0 0 0 5" Height="34">
-                    Редактировать
+                <Button Margin="0 0 0 5" Height="34" Click="Button_Click_2">
+                    Обновить список
                 </Button>
-                <Button Margin="0 0 0 5" Height="34">
-                    Удалить
+                <Button Margin="0 0 0 5" Height="34" Click="Button_Click_1">
+                    Создать рецепт
                 </Button>
-                <Button Margin="0 0 0 5" Height="34">
-                    Создать
+                <Button Margin="0 0 0 5" Height="34" Click="Button_Click">
+                    Создать ингридиент
+                </Button>
+                <Button Margin="0 0 0 5" Height="34" Click="Button_EditSelected">
+                    Редактировать выбранное
                 </Button>
             </StackPanel>
         </Border>

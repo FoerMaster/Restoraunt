@@ -1,0 +1,36 @@
+﻿<Window x:Class="Restoraunt.Windows.CreateDish"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Restoraunt.Windows"
+        mc:Ignorable="d"
+        Title="CreateDish" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="10">
+            <TextBlock Text="Название блюда" Margin="5"/>
+            <TextBox x:Name="DishNameTextBox" Margin="5"/>
+
+            <TextBlock Text="Ингредиенты" Margin="5"/>
+            <ComboBox x:Name="IngredientsComboBox" Margin="5" DisplayMemberPath="Name"/>
+
+            <TextBlock Text="Количество" Margin="5"/>
+            <TextBox x:Name="QuantityTextBox" Margin="5"/>
+
+            <Button Content="Добавить Ингредиент" Click="AddIngredientButton_Click" Margin="5"/>
+
+            <ListBox x:Name="IngredientsListBox" Margin="5">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Display}" Margin="5"/>
+                            <Button Content="Удалить" Click="RemoveIngredientButton_Click" Tag="{Binding}" Margin="5"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Button Content="Добавить Блюдо" Click="AddDishButton_Click" Margin="5" Width="150" HorizontalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</Window>

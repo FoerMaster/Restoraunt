@@ -18,7 +18,7 @@ namespace Restoraunt.Pages
         {
             get
             {
-                if (database == null)
+                if (true)
                 {
                     database = new DataBase.FoodDBEntities();
                     if (database.Database.Exists() == false)
